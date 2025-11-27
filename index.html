@@ -16,21 +16,24 @@
 
     /* -------- MARCA DE AGUA -------- */
     body::before {
-    content: "";
-    background: url('logo.png') center center no-repeat;
-    background-size: 120vw; /* mucho más grande */
-    opacity: 0.9;          /* marca de agua profesional */
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-@media (max-width: 600px) {
-    body::before {
-        background-size: 160vw; /* aún más grande en celular */
-        opacity: 0.07;
+        content: "";
+        background: url('logo.png') center center no-repeat;
+        background-size: 120vw; /* grande en PC */
+        opacity: 0.9;          /* marca de agua profesional */
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
     }
-}
-}
+
+    /* -------- MARCA DE AGUA EN CELULAR -------- */
+    @media (max-width: 600px) {
+        body::before {
+            background-size: 170vw; /* aún más grande en móvil */
+            opacity: 0.9;
+        }
+    }
+
     /* -------- HEADER -------- */
     header {
         text-align: center;
@@ -59,14 +62,13 @@
         max-width: 700px;
         margin: auto;
         margin-top: 15px;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.92);
         padding: 25px;
         border-radius: 20px;
         border: 2px solid #000;
         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
 
-    /* -------- LABEL -------- */
     label {
         font-size: 18px;
         font-weight: 700;
@@ -75,7 +77,6 @@
         color: #000;
     }
 
-    /* -------- CAMPOS -------- */
     select, input {
         width: 100%;
         padding: 16px;
@@ -121,7 +122,6 @@
         filter: brightness(1.1);
     }
 
-    /* -------- RESUMEN -------- */
     #resumen {
         margin-top: 25px;
         background: #fff;
@@ -234,7 +234,6 @@ function enviarWhatsApp() {
     let url = "https://wa.me/573002943541?text=" + encodeURIComponent(resumen);
     window.open(url, "_blank");
 }
-
 </script>
 
 </body>
